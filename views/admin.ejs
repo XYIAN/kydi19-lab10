@@ -1,13 +1,60 @@
-<% include partials/head.ejs %>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Kyle Dilbeck Lab 10 </title>
+     
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>-->
+      <!--<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <link href="css/styles.css" rel="stylesheet" type="text/css" />
+      <!--<script SRC='js/functions.js'></script>   -->
+      
+    </head>
+<script>
+    $(document).ready(function()//DOM PREP
+    {
+        //event listener 
+        $(".removeAuthor").on("click", function(event){   //event(can be any name) will hold full info of the event
+            alert( "Working..." );
+            //confirm("Are you sure, you want to delete author?"); //returns BOOL T/F
+            deleteConfirm(); 
+            
+            
+        });
+        
+        function deleteConfirm()
+        {
+            if(!confirm("Are you sure? YES to delete author, cancel to keep author"))
+            {
+                event.preventDefault();
+            }
+        }
+        
+        
+        
+    }); //END DOCUMENT READY
+</script>
 
-<h1>Admin Section</h1>
 
+<h1> Admin Section </h1>
 
-<form >
-    <button> Add New Author</button>
-    
-</form action="/addAuthor">
-
-
-
-<% include partials/footer.ejs %>
+        <form action="/addAuthor">
+          <button> Add New Author </button>
+        </form>
+         <form action="/logout">
+          <button> Logout </button>
+        </form>
+        
+        
+        <h3>Authors</h3>
+        
+        <% authorList.forEach(function(author){  %>
+        
+            [<a href="/updateAuthor?authorId=<%= author.authorId %>">UPDATE</a>] 
+            [<a class="removeAuthor" href="/deleteAuthor?authorId=<%= author.authorId %>">DELETE</a>] 
+            
+            <%= author.firstName %> <%= author.lastName %> <br>
+        <% }) %>
+</html>

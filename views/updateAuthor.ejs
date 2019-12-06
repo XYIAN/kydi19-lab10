@@ -12,25 +12,29 @@
       <!--<script SRC='js/functions.js'></script>   -->
       
     </head>
-<h1> Adding a New Author </h1>
+        <h1> Updating Author </h1>
         
 
         <form method="POST">
         
-            First name: <input type="text" name="firstName"><br>    
-            Last  name: <input type="text" name="lastName"><br>    
-            Gender: <input type="radio" name="gender" value="F">Female
-                    <input type="radio" name="gender" value="M">Male
-            DOB: <br></br>
-            DOD: </br>
-            Biography: <textarea name="biography" cols="200" height="20"></textarea>
+            First name: <input type="text" name="firstName"
+                        value="<%= authorInfo.firstName %>"><br>    
+            Last  name: <input type="text" name="lastName"
+                        value="<%= authorInfo.lastName %>"><br>    
+            Gender: <input type="radio" name="gender" value="F" 
+                         <%= authorInfo.sex == 'F'?"checked":"" %>
+                        >Female
+                    <input type="radio" name="gender" value="M"
+                       <%= authorInfo.sex == 'M'?"checked":"" %>
+                    >Male
+                    
+            <input type="hidden" name="authorId" value="<%= authorInfo.authorId %>"> 
+            
             <!--TODO: Add the remaining fields -->
             <br><br>
-            <button>Add Author</button>
+            <button>Update Author</button>
         
-            <!--CHECK IF UNDEF OR NOT, IF UNDEF NO DISPLAY, ID DEFINED->DISPLAY-->
             <%= typeof(message) != "undefined"?message:"" %>
             
         </form>        
-
 </html>
