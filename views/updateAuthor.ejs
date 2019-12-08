@@ -21,16 +21,14 @@
                         value="<%= authorInfo.firstName %>"><br>    
             Last  name: <input type="text" name="lastName"
                         value="<%= authorInfo.lastName %>"><br>    
-            Gender: <input type="radio" name="gender" value="F" 
-                         <%= authorInfo.sex == 'F'?"checked":"" %>
-                        >Female
-                    <input type="radio" name="gender" value="M"
-                       <%= authorInfo.sex == 'M'?"checked":"" %>
-                    >Male
-                    
+            Gender: <input type="radio" name="gender" value="F" <%= authorInfo.sex == 'F'?"checked":"" %>>Female
+                    <input type="radio" name="gender" value="M"<%= authorInfo.sex == 'M'?"checked":"" %>>Male
             <input type="hidden" name="authorId" value="<%= authorInfo.authorId %>"> 
             
             <!--TODO: Add the remaining fields -->
+            DOB:    <input type="text" name="DOB"> <br>
+            DOD:    <input type="text" name="DOD"> <br>
+            
             <br><br>
             <button>Update Author</button>
         
