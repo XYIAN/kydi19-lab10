@@ -20,7 +20,7 @@
             alert("DEBUG - ajax hit"); 
             $.ajax({
             
-                method: "GET",
+                method: "POST",
                 url: "/loginProcess",
                 dataType: "json",
                 data: 
@@ -31,25 +31,37 @@
                 },
                 success: function(result,status) 
                 {
+                    alert("success hit debug");
                    if(!result)
                    {
                        alert("WRONG CREDENTIALS");
                    }else
-                   location.href = "/admin"; 
+                   location.href="/admin"; 
                 }
             });//ajax
         });
     }); //END DOCUMENT READY
 </script>
 
+
+
 <h1> Login Screen</h1>
 
     Username: <input type="text" id="username" name="username"/>       <br>
     Password: <input type="password" id="password" name="password"/>   <br>
     
-    <button id=loginButton> CLICK TO <strong>LOGIN!</strong> </button>    
+    <button id="loginButton"> CLICK TO <strong>LOGIN!</strong> </button>    
     
 
-
+<footer>
+    <br>
+    <p> DEBUG SCRIPT _____ >> NAV MENU BELOW IS FOR DEBUG PURPOSES <<< ____ </p>
+    <nav class="centerText">
+            <a href="/login">   LOGIN</a>
+            <a href="/admin">   ADMIN</a>
+            <a href="/newAuthor">   NewAuthor</a>
+            <a href="/updateAuthor">   updateAuthor</a>
+    </nav>
+</footer>
 
 </html>

@@ -42,11 +42,12 @@ app.get("/admin", async function(req, res){
 });//END GWT ADMIN
 
 app.post("/loginProcess", function(req, res){
+     
    if(req.body.username == "admin" && sha256(req.body.password) == "2bb80d537b1da3e38bd30361aa855686bde0eacd7162fef6a25fe97bf527a25b")
    {
        let count = 0; 
        count++;
-       res.send("DEBUG - LOGIN PROCESS HIT x" + count); 
+      console.log("DEBUG - LOGIN PROCESS HIT x" + count); 
        req.session.authenticated = true; 
        res.send({"loginSuccess" : true});
    }
