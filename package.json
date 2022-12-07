@@ -18,7 +18,7 @@
   "homepage": "https://github.com/XYIAN/kydi19-lab10#readme",
   "dependencies": {
     "ejs": "^2.7.2",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "express-session": "^1.17.0",
     "mysql": "^2.17.1",
     "sha256": "^0.2.0"
